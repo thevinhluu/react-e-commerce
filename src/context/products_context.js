@@ -40,8 +40,8 @@ export const ProductsProvider = ({ children }) => {
 		dispatch({ type: GET_PRODUCTS_BEGIN });
 		try {
 			const response = await axios.get(url);
-			const singleProduct = response.data;
-			dispatch({ type: GET_PRODUCTS_SUCCESS, payload: singleProduct });
+			const products = response.data;
+			dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
 		} catch (error) {
 			dispatch({ type: GET_PRODUCTS_ERROR });
 		}
