@@ -31,7 +31,15 @@ export const FilterProvider = ({ children }) => {
 		[products]
 	);
 
-	return <FilterContext.Provider value={{ ...state }}>{children}</FilterContext.Provider>;
+	const setGirdView = () => {
+		dispatch({ type: SET_GRIDVIEW });
+	};
+
+	const setListView = () => {
+		dispatch({ type: SET_LISTVIEW });
+	};
+
+	return <FilterContext.Provider value={{ ...state, setGirdView, setListView }}>{children}</FilterContext.Provider>;
 };
 // make sure use
 export const useFilterContext = () => {
