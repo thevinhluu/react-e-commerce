@@ -9,7 +9,7 @@ const Stars = ({ stars, reviews }) => {
 			<span key={index}>{stars >= index + 1 ? <BsStarFill /> : stars >= number ? <BsStarHalf /> : <BsStar />}</span>
 		);
 	});
-	console.log(tempStars);
+
 	return (
 		<Wrapper>
 			<div className='stars'>{tempStars}</div>
