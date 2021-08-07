@@ -56,34 +56,8 @@ const CheckoutForm = () => {
 			}
 		}
 	};
-	const handleChange = async (event) => {
-		// Listen for changes in the CardElement
-		// and display any errors as the customer types their card details
-		setDisabled(event.empty);
-		setError(event.error ? event.error.message : '');
-	};
-	const handleSubmit = async (ev) => {
-		ev.preventDefault();
-		setProcessing(true);
-		const payload = await stripe.confirmCardPayment(clientSecret, {
-			payment_method : {
-				card : elements.getElement(CardElement)
-			}
-		});
-		if (payload.error) {
-			setError(`Payment failed ${payload.error.message}`);
-			setProcessing(false);
-		}
-		else {
-			setError(null);
-			setProcessing(false);
-			setSucceeded(true);
-			setTimeout(() => {
-				clearCart();
-				history.push('/');
-			}, 10000);
-		}
-	};
+	const handleChange = async (event) => {};
+	const handleSubmit = async (ev) => {};
 	return (
 		<div>
 			<form id='payment-form' onSubmit={handleSubmit}>
